@@ -1,0 +1,41 @@
+From 25c44fb2c0ddaabcd4eba5fae437a67a070e1f60 Mon Sep 17 00:00:00 2001
+From: MagneFire <IDaNLContact@gmail.com>
+Date: Mon, 9 Nov 2020 21:58:59 +0100
+Subject: [PATCH] test_vibrator: Remove header check. This only works on
+ Android <7.
+
+---
+ hybris/tests/test_vibrator.c | 12 ------------
+ 1 file changed, 12 deletions(-)
+
+diff --git a/hybris/tests/test_vibrator.c b/hybris/tests/test_vibrator.c
+index f080316..dad3c80 100644
+--- a/hybris/tests/test_vibrator.c
++++ b/hybris/tests/test_vibrator.c
+@@ -16,8 +16,6 @@
+  *
+  */
+ 
+-#if HAS_VIBRATOR_HEADER
+-
+ #include <android-config.h>
+ #include <assert.h>
+ #include <stdio.h>
+@@ -56,14 +54,4 @@ int main(int argc, char **argv)
+ 	return 0;
+ }
+ 
+-#else
+-#include <stdio.h>
+-
+-int main(int argc, char *argv[])
+-{
+-    printf("test_vibrator is not supported in this build");
+-    return 0;
+-}
+-#endif
+-
+ // vim:ts=4:sw=4:noexpandtab
+-- 
+2.29.2
+
